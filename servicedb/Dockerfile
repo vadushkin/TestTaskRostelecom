@@ -9,4 +9,4 @@ ENV PYTHONUNBUFFERED=1
 
 RUN pip install -r requirements.txt --compile --no-cache-dir
 
-ENTRYPOINT ["/usr/src/app/entrypoint.sh"]
+CMD ["uvicorn", "app:app", "--reload", "--port", "8001"]
