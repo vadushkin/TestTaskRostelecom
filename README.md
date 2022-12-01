@@ -1,16 +1,16 @@
-## Test task on FastApi, Tornado and RabbitMQ
+# Test task on FastApi, Tornado and RabbitMQ
 
 Installation
 ---------
 
 ##### Clone a repository
 ```git
-...
+git clone https://github.com/vadushkin/TestTaskRostelecom.git
 ```
 
 ##### Change a folder
 ```shell
-cd ...
+cd TestTaskRostelecom
 ```
 
 
