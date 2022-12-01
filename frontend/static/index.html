@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <title>Document</title>
+
+    <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body class="body">
+
+<div class="container">
+    <div class="content">
+        <form id="form" class="form" method="post">
+            <!-- Name field -->
+            <label for="name"></label>
+            <input id="name" placeholder="Name">
+
+            <!-- Second name field -->
+            <label for="secondName"></label>
+            <input id="secondName" placeholder="Second name">
+
+            <!-- Patronymic field -->
+            <label for="patronymic"></label>
+            <input id="patronymic" placeholder="Patronymic">
+
+            <!-- Phone field -->
+            <label for="phone"></label>
+            <input id="phone" type="number" placeholder="Phone">
+
+            <!-- Message field -->
+            <label for="message"></label>
+            <textarea id="message" placeholder="Message"></textarea>
+
+            <!-- Button field -->
+            <button type="submit">Send</button>
+        </form>
+    </div>
+
+    <!-- Dialog window -->
+    <div id="dialog" class="dialog">
+        <div class="dialog-content">
+            <h3>The message is registered</h3>
+            <button id="dialog-btn">Cool</button>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="js/index.js"></script>
+</div>
+</body>
+</html>

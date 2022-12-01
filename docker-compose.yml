@@ -1,0 +1,67 @@
+version: "3.8"
+
+volumes:
+  rabbitmq_data:
+  postgres_volume:
+
+
+services:
+  backend:
+    build: backend
+    restart: always
+    depends_on:
+      - servicedb
+      - rabbitmq
+    env_file:
+      - .env
+    ports:
+      - "82:8888"
+    networks:
+      main:
+
+  rabbitmq:
+    build: rabbitmq
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      main:
+
+  servicedb:
+    build: servicedb
+    restart: always
+    depends_on:
+      - database
+      - rabbitmq
+    env_file:
+      - .env
+    networks:
+      main:
+
+  database:
+    build: db
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - postgres_volume:/var/lib/postgresql/data
+    networks:
+      main:
+    ports:
+      - "5433:5432"
+
+  frontend:
+    image: nginx:latest
+    restart: always
+    ports:
+      - "8080:80"
+    volumes:
+      - ./frontend/static:/usr/share/nginx/html
+
+networks:
+  main:
